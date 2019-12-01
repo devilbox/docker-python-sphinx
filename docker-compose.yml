@@ -1,0 +1,24 @@
+---
+version: '3.4'
+
+services:
+  project1:
+    image: devilbox/python-sphinx:${PYTHON_VERSION:-3.8}-dev
+    build:
+      context: .
+      target: dev
+      args:
+        - ALPINE=
+        - PYTHON=${PYTHON_VERSION:-3.8}
+    hostname: project1
+    restart: always
+    ports:
+      - "${HOST_PORT_SPHINX:-8000}:${SPHINX_PORT:-8000}"
+    environment:
+      - SPHINX_PROJECT=${SPHINX_PROJECT:-test-project}
+      - SPHINX_BUILD_DIR=${SPHINX_BUILD_DIR:-_build/html}
+      - SPHINX_PORT=${SPHINX_PORT:-8000}
+      - NEW_UID=${NEW_UID:-1000}
+      - NEW_GID=${NEW_GID:-1000}
+    volumes:
+      - ./test-project:/shared/httpd/${SPHINX_PROJECT:-test-project}
