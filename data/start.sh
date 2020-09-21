@@ -159,5 +159,5 @@ else
 		fi
 
 		set -x
-		sphinx-autobuild -a -E -n -j auto -q -H 0.0.0.0 -p ${DEFAULT_SPHINX_PORT} . ${DEFAULT_SPHINX_BUILD_DIR}" devilbox
+		sphinx-autobuild -a -E -n -j auto -q --host 0.0.0.0 --port ${DEFAULT_SPHINX_PORT} . ${DEFAULT_SPHINX_BUILD_DIR}" devilbox
 fi
