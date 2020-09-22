@@ -8,8 +8,10 @@ TEST_PATH="$( cd "$(dirname "$0")" && pwd -P )"
 ROOT_PATH="$( cd "${TEST_PATH}/.." && pwd -P )"
 
 retry() {
-	for ((n=0; n<40; n++)); do
-		echo "[${n}] ${*}"
+	local max
+	max="100"
+	for ((n=0; n<max; n++)); do
+		>&2 printf "[%s/%s] %s\\n" "$((n+1))" "${max}" "${*}"
 		if eval "${*}"; then
 			return 0
 		fi
