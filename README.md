@@ -69,6 +69,7 @@ Rolling tags are updated and pushed nightly to ensure latest patch-level Python 
 
 | Image tag | Python version |
 |-----------|----------------|
+| `3.9-dev` | Latest 3.9.x   |
 | `3.8-dev` | Latest 3.8.x   |
 | `3.7-dev` | Latest 3.7.x   |
 | `3.6-dev` | Latest 3.6.x   |
@@ -82,6 +83,7 @@ Release tags are fixed and bound to git tags.
 
 | Image Tag           | Python version |
 |---------------------|----------------|
+| `3.9-dev-<git-tag>` | Latest 3.9.x   |
 | `3.8-dev-<git-tag>` | Latest 3.8.x   |
 | `3.7-dev-<git-tag>` | Latest 3.7.x   |
 | `3.6-dev-<git-tag>` | Latest 3.6.x   |
