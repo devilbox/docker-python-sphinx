@@ -1,11 +1,14 @@
 # Python Sphinx Docker image
 
-[![Build Status](https://travis-ci.com/devilbox/docker-python-sphinx.svg?branch=master)](https://travis-ci.com/devilbox/docker-python-sphinx)
 [![Tag](https://img.shields.io/github/tag/devilbox/docker-python-sphinx.svg)](https://github.com/devilbox/docker-python-sphinx/releases)
 [![Gitter](https://badges.gitter.im/devilbox/Lobby.svg)](https://gitter.im/devilbox/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Discourse](https://img.shields.io/discourse/https/devilbox.discourse.group/status.svg?colorB=%234CB697)](https://devilbox.discourse.group)
 [![type](https://img.shields.io/badge/type-Docker-blue.svg)](https://hub.docker.com/r/devilbox/python-sphinx)
 [![License](https://img.shields.io/badge/license-MIT-%233DA639.svg)](https://opensource.org/licenses/MIT)
+
+[![lint](https://github.com/devilbox/docker-python-sphinx/workflows/lint/badge.svg)](https://github.com/devilbox/docker-python-sphinx/actions?query=workflow%3Alint)
+[![build](https://github.com/devilbox/docker-python-sphinx/workflows/build/badge.svg)](https://github.com/devilbox/docker-python-sphinx/actions?query=workflow%3Abuild)
+[![nightly](https://github.com/devilbox/docker-python-sphinx/workflows/nightly/badge.svg)](https://github.com/devilbox/docker-python-sphinx/actions?query=workflow%3Anightly)
 
 This project provides a Python Sphinx Docker image for development purposes.
 
@@ -66,6 +69,7 @@ Rolling tags are updated and pushed nightly to ensure latest patch-level Python 
 
 | Image tag | Python version |
 |-----------|----------------|
+| `3.9-dev` | Latest 3.9.x   |
 | `3.8-dev` | Latest 3.8.x   |
 | `3.7-dev` | Latest 3.7.x   |
 | `3.6-dev` | Latest 3.6.x   |
@@ -79,6 +83,7 @@ Release tags are fixed and bound to git tags.
 
 | Image Tag           | Python version |
 |---------------------|----------------|
+| `3.9-dev-<git-tag>` | Latest 3.9.x   |
 | `3.8-dev-<git-tag>` | Latest 3.8.x   |
 | `3.7-dev-<git-tag>` | Latest 3.7.x   |
 | `3.6-dev-<git-tag>` | Latest 3.6.x   |

@@ -109,17 +109,22 @@ su -c "
 		mkdir -p \"${PROJECT}\"
 	fi
 
-
-	if [ ! -d \"${PROJECT}/venv\" ]; then
-		echo \"[INFO] Creating Python virtual env: ${PROJECT}/venv\"
-		cd \"${PROJECT}\"
-		virtualenv venv
-	fi
-
 	if [ ! -d \"${PROJECT}/${DEFAULT_SPHINX_BUILD_DIR}\" ]; then
 		echo \"[INFO] Creating build dir: ${PROJECT}/${DEFAULT_SPHINX_BUILD_DIR}\"
 		mkdir -p \"${PROJECT}/${DEFAULT_SPHINX_BUILD_DIR}\"
 	fi" devilbox
+
+
+# -------------------------------------------------------------------------------------------------
+# Install requirements.txt
+# -------------------------------------------------------------------------------------------------
+
+if [ ! -f "${PROJECT}/requirements.txt" ]; then
+	echo "[INFO] No requirements.txt file found at: ${PROJECT}/requirements.txt"
+else
+	echo "[INFO] Installing pip requirements from: ${PROJECT}/requirements.txt"
+	pip install -r "${PROJECT}/requirements.txt"
+fi
 
 
 # -------------------------------------------------------------------------------------------------
@@ -132,15 +137,6 @@ if [ "${#}" -gt "0" ]; then
 		set -u
 
 		cd \"${PROJECT}\"
-
-		. venv/bin/activate
-		if [ ! -f \"${PROJECT}/requirements.txt\" ]; then
-			echo \"[INFO] No requirements.txt file found at: ${PROJECT}/requirements.txt\"
-		else
-			echo \"[INFO] Installing pip requirements from: ${PROJECT}/requirements.txt\"
-			pip install -r \"${PROJECT}/requirements.txt\"
-		fi
-
 		set -x
 		${*}" devilbox
 else
@@ -149,15 +145,6 @@ else
 		set -u
 
 		cd \"${PROJECT}\"
-
-		. venv/bin/activate
-		if [ ! -f \"${PROJECT}/requirements.txt\" ]; then
-			echo \"[INFO] No requirements.txt file found at: ${PROJECT}/requirements.txt\"
-		else
-			echo \"[INFO] Installing pip requirements from: ${PROJECT}/requirements.txt\"
-			pip install -r \"${PROJECT}/requirements.txt\"
-		fi
-
 		set -x
-		sphinx-autobuild -a -E -n -j auto -q -H 0.0.0.0 -p ${DEFAULT_SPHINX_PORT} . ${DEFAULT_SPHINX_BUILD_DIR}" devilbox
+		sphinx-autobuild -a -E -n -j auto -q --host 0.0.0.0 --port ${DEFAULT_SPHINX_PORT} . ${DEFAULT_SPHINX_BUILD_DIR}" devilbox
 fi
